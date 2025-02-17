@@ -1,0 +1,26 @@
+# Ignore node_modules (Angular)
+node_modules/
+dist/
+.angular/
+
+# Ignore build files (Spring Boot)
+target/
+*.jar
+*.war
+*.class
+
+# Ignore environment files
+src/environments/environment.prod.ts
+src/environments/environment.ts
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+*.iml
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore Git files
+.git/
