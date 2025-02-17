@@ -1,0 +1,52 @@
+<app-super-admin-nav></app-super-admin-nav>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-super-admin-side-bar></app-super-admin-side-bar>
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid">
+        <h1 class="text-center mb-5">All Sellers</h1>
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4" *ngFor="let seller of user">
+            <div class="card shadow-sm">
+              <!-- <img
+                [src]="'/assets/images/' + seller.categoryImage"
+                class="card-img-top"  style="height: 300px"
+                alt="Category Image"
+              /> -->
+              <div class="card-body d-flex flex-column align-items-center">
+                <h3 class="text-center">
+                  <strong>Seller Name:</strong> {{ seller.userName }}
+                </h3>
+                <h4><strong>Seller Email:</strong> {{ seller.userEmail }}</h4>
+                <h4 class="mb-3">
+                  <strong>Seller Contact No.:</strong>
+                  {{ seller.userContactNumber }}
+                </h4>
+                <div
+                  class="btn-container d-flex justify-content-center mt-auto"
+                >
+                  <button
+                    class="btn btn-sm btn-danger"
+                    *ngIf="seller.blocked === false || !seller.blocked"
+                    (click)="seller.userId && blockUser(seller.userId)"
+                  >
+                    Block
+                  </button>
+                  <button
+                    class="btn btn-sm btn-success"
+                    *ngIf="seller.blocked === true"
+                    (click)="seller.userId && unblockUser(seller.userId)"
+                  >
+                    Unblock
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<app-footer></app-footer>

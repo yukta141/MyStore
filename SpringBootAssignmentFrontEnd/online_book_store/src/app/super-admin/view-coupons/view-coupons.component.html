@@ -1,0 +1,60 @@
+<app-super-admin-nav></app-super-admin-nav>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-super-admin-side-bar></app-super-admin-side-bar>
+
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-wrapper">
+        <div class="form-container">
+          <div class="form-header">
+            <h1>All Coupons</h1>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Coupon Name</th>
+                  <th scope="col">Coupon Code</th>
+                  <th scope="col">Discount (%)</th>
+                  <th scope="col">Expiration Date</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let coupon of paginatedCoupons">
+                  <td>{{ coupon.couponName }}</td>
+                  <td>{{ coupon.couponCode }}</td>
+                  <td>{{ coupon.couponDiscount }}%</td>
+                  <td>{{ coupon.couponExpirationDate | date: 'shortDate' }}</td>
+                  <td class="text-end">
+                    <!-- <a
+                      href="#"
+                      class="btn btn-sm btn-neutral"
+                      routerLink="/edit/{{ coupon.couponId }}"
+                    >
+                      <i class="bi bi-pencil-square"></i>
+                    </a> -->
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-square btn-neutral text-danger-hover"
+                      (click)="deleteCoupon(coupon.couponId)"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination-buttons">
+            <button class="button" (click)="previousPage()">Previous</button>
+            <span>{{ currentPage }} / {{ totalPages }}</span>
+            <button class="button" (click)="nextPage()">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+

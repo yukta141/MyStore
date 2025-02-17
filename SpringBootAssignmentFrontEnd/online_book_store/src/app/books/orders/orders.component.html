@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<app-header></app-header>
+<div class="container orderContainer">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>My Orders</h2>
+
+      <div *ngIf="orders.length > 0; else noItems">
+        <div *ngFor="let ord of orders" class="order-item mb-4">
+          <div class="card order-card">
+            <div class="card-body">
+              <h3>
+                <strong>Order ID: {{ ord[0].groupId }}</strong>
+              </h3>
+              
+
+              <div *ngFor="let order of ord" class="row">
+                <!-- <div class="col-md-12">
+                  <h3><strong>Group ID:</strong> {{ order.groupId }}</h3>
+                </div> -->
+                <div class="col-md-2">
+                  <img
+                    [src]="
+                      '/assets/images/' +
+                      (order.book.bookImage || 'placeholder-image.jpg')
+                    "
+                    alt="Product Image"
+                    class="product-image img-fluid"
+                    style="
+                      max-height: 200px;
+                      max-width: 140px;
+                      margin-top: 30px;
+                    "
+                  />
+                </div>
+               
+                <div class="col-md-10">
+                  <h3>
+                    <strong>Product Name:</strong>
+                    {{ order.book.bookName || "Unknown" }}
+                  </h3>
+                  <h6 class="desc">
+                    <strong>Price:</strong> ₹{{
+                      order.book.bookPrice || 0
+                    }}
+                  </h6>
+                  <h6 class="desc">
+                    <strong>Description:</strong>
+                    {{ order.book.bookDescription }}
+                  </h6>
+                  <!-- <h6>
+                    <strong>Order Status:</strong>
+                    {{ order.orderStatus }}
+                  </h6> -->
+                  <h6 class="desc">
+                    <strong>Placed Date:</strong>
+                    {{ order.placedDate }}
+                  </h6>
+    
+                </div>
+                <div class="delivery-status">
+                  <div class="status-item" [ngClass]="{'completed': isCompleted(order.orderStatus, 'PLACED')}">
+                    <img src="assets/images/placed2.png" alt="Packing" />
+                    <p>PLACED</p>
+                    <div class="status-check">
+                      <i *ngIf="isCompleted(order.orderStatus, 'PLACED')" class="fa fa-check-circle" style="color:green;"></i>
+                    </div>
+                  </div>
+                
+                  <div class="status-line" [ngClass]="{'active': isActive(order.orderStatus, 'SHIPPED')}"></div>
+                  <div class="status-item" [ngClass]="{'completed': isCompleted(order.orderStatus, 'SHIPPED')}">
+                    <img src="assets/images/shipped1.png" alt="Shipped" />
+                    <p>SHIPPED</p>
+                    <div class="status-check">
+                      <i *ngIf="isCompleted(order.orderStatus, 'SHIPPED')" class="fa fa-check-circle" style="color:green;"></i>
+                    </div>
+                  </div>
+                
+                  <div class="status-line" [ngClass]="{'active': isActive(order.orderStatus, 'OUT-FOR-DELIVERY')}"></div>
+                
+                  <div class="status-item" [ngClass]="{'completed': isCompleted(order.orderStatus, 'OUT-FOR-DELIVERY')}">
+                    <img src="assets/images/outfordelivery1.png" alt="Out for Delivery" />
+                    <p>OUT-FOR-DELIVERY</p>
+                    <div class="status-check">
+                      <i *ngIf="isCompleted(order.orderStatus, 'OUT-FOR-DELIVERY')" class="fa fa-check-circle" style="color:green;"></i>
+                    </div>
+                  </div>
+                
+                  <div class="status-line" [ngClass]="{'active': isActive(order.orderStatus, 'DELIVERED')}"></div>
+                
+                  <div class="status-item" [ngClass]="{'completed': isCompleted(order.orderStatus, 'DELIVERED')}">
+                    <img src="assets/images/delivered1.png" alt="Delivered" />
+                    <p>DELIVERED</p>
+                    <div class="status-check">
+                      <i *ngIf="isCompleted(order.orderStatus, 'DELIVERED')" class="fa fa-check-circle" style="color:green;"></i>
+                    </div>
+                  </div>
+                
+                  <div class="status-line" [ngClass]="{'active': isActive(order.orderStatus, 'CANCELLED')}"></div>
+                
+                  <div class="status-item" [ngClass]="{'completed': isCompleted(order.orderStatus, 'CANCELLED')}">
+                    <img src="assets/images/cancelled1.png" alt="Cancelled" />
+                    <p>CANCELLED</p>
+                    <div class="status-check">
+                      <i *ngIf="isCompleted(order.orderStatus, 'CANCELLED')" class="fa fa-check-circle" style="color:red;"></i>
+                    </div>
+                  </div>
+                </div>
+                
+                &nbsp;
+                <hr/>
+                             
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ng-template #noItems>
+        <div class="text-center">
+          <img
+            src="/assets/images/empty.png"
+            alt="No items"
+            class="img-fluid"
+          />
+          <p class="order-data"><strong>No Orders placed.</strong></p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

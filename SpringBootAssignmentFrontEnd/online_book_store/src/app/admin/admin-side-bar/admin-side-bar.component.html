@@ -1,0 +1,63 @@
+<nav
+  class="navbar navbar-expand-lg navbar-vertical border-bottom border-bottom-lg-0 border-end-lg custom-width"
+  id="navbarVertical"
+>
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#sidebarCollapse"
+      aria-controls="sidebarCollapse"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="sidebarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a routerLink="/dashboard" class="nav-link">
+            <i class="bi bi-house"></i> Dashboard
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/details" class="nav-link">
+            <i class="bi bi-box"></i> Books
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a routerLink="/viewCategory" class="nav-link">
+            <i class="bi bi-list-ul"></i> Categories
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a routerLink="/vieworder" class="nav-link">
+            <i class="bi bi-cart3"></i> Orders
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a routerLink="/viewCoupon" class="nav-link">
+            <i class="bi bi-card-heading"></i> Coupons
+          </a>
+        </li> -->
+        <li class="nav-item">
+          <a routerLink="/insert" class="nav-link">
+            <i class="bi bi-plus-circle"></i> Add Book
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/viewSellerRevenue" class="nav-link">
+            <i class="bi bi-currency-rupee"></i> Revenue
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" (click)="logout()">
+            <i class="bi bi-box-arrow-right"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

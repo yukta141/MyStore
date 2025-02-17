@@ -1,0 +1,84 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-admin-side-bar></app-admin-side-bar>
+
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-container">
+        <h1>All Orders</h1>
+
+        <div *ngIf="paginatedOrders.length === 0" class="alert alert-warning">
+          No orders have been placed yet.
+        </div>
+        <div class="table-responsive" *ngIf="paginatedOrders.length > 0">
+          <table class="table table-hover table-nowrap">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">User Email</th>
+                <th scope="col">Order ID</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">Placed Date</th>
+                <th scope="col">Estimated Delivery Date</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let order of paginatedOrders">
+                <td>
+                  {{ order.user.userName }}
+                </td>
+                <td>
+                  {{ order.user.userEmail }}
+                </td>
+                <td>
+                  {{ order.orderId }}
+                </td>
+                <td>
+                  {{ order.orderStatus }}
+                </td>
+
+                <td>
+                  {{ order.placedDate }}
+                </td>
+                <td>
+                  {{ order.estimatedDeliveryDate | date : "yyyy-MM-dd" }}
+                </td>
+                <!-- <td>
+                  <button class="btn btn-warning" (click)="updateOrderStatus(order.orderId!, 'DELIVERED')">
+                    Mark as Delivered
+                  </button>
+                </td> -->
+                <td>
+                  <select
+                    class="select"
+                    [(ngModel)]="order.orderStatus"
+                    (change)="onStatusChange($event, order.orderId!)"
+                  >
+                    <option
+                      class="option"
+                      *ngFor="let status of statusOptions"
+                      [value]="status"
+                    >
+                      {{ status }}
+                    </option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination-buttons" *ngIf="paginatedOrders.length > 0">
+          <button class="button pageButton" (click)="previousPage()">
+            Previous
+          </button>
+          <span>{{ currentPage }} / {{ totalPages }}</span>
+          <button class="button pageButton" (click)="nextPage()">Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+<app-footer></app-footer>

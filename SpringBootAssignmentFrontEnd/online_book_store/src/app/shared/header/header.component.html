@@ -1,0 +1,133 @@
+<nav class="navbar navbar-expand-lg navbar-custom shadow">
+  <div class="container-fluid">
+    <a class="nav-link" style="padding: 0; margin: 0" routerLink="/home">
+      <img src="assets/image/mystore.jfif" class="logo" alt="logo" />
+    </a>
+    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+    
+      <li class="nav-item ms-3" *ngFor="let category of categories.slice(0, 3)">
+        <a
+          [routerLink]="['/getcards', category.categoryName]"
+          class="navCategoryNames"
+        >
+          {{ category.categoryName }}
+        </a>
+
+       
+      </li>
+      <li class="nav-item ms-3" *ngFor="let book of books">
+        <a [routerLink]="['/getSeries',book.bookSeries]" class="navCategoryNames">
+          Book Series
+        </a>
+      </li>
+    </ul>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      id="navbarNav"
+    >
+      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+        <!-- Search Bar -->
+        <input
+          class="form-control search-input"
+          type="search"
+          [(ngModel)]="searchQuery"
+          (input)="onSearchInputChange($event)"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <li class="nav-item ms-3">
+          <button
+            class="btn btn-rounded"
+            type="submit"
+            (click)="searchProducts()"
+          >
+            Search
+          </button>
+        </li>
+      </ul>
+
+      <a class="nav-link" routerLink="/user/login">
+        <button
+          class="btn btn-outline-light btn-rounded"
+          type="submit"
+          *ngIf="!isLoggedIn"
+        >
+          Login/Register
+        </button>
+      </a>
+
+      <div class="dropdown ms-lg-2" *ngIf="isLoggedIn">
+        <a [routerLink]="['/getcart', userId]">
+          <img
+            src="../../../assets/images/cart1.png"
+            alt="User cart Image"
+            class="cart-image"
+          />
+        </a>
+
+        <a [routerLink]="['/getNotify', userId]">
+          <img
+            src="../../../assets/images/notification.png"
+            alt="User notification Image"
+            class="cart-image"
+          />
+        </a>
+
+        <a [routerLink]="['/wishlist', userId]">
+          <img
+            src="../../../assets/images/wishicon.png"
+            alt="User notification Image"
+            class="cart-image"
+          />
+        </a>
+
+        <button
+          class="btn dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <img
+            src="../../../assets/images/user.png"
+            alt="User Profile Image"
+            class="profile-image"
+          />
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <li>
+            <a
+              class="dropdown-item animated"
+              href="#"
+              routerLink="/user/profile"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item animated" href="#" routerLink="/getorder"
+              >Orders</a
+            >
+          </li>
+          <li class="separator"></li>
+          <li>
+            <a class="dropdown-item animated" href="#" (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

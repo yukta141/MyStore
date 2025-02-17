@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="notification-container">
+  <div class="notification-box">
+    <h2>Notifications</h2>
+
+    <ul *ngIf="notifications.length > 0; else noNotifications">
+      <li *ngFor="let notification of notifications; let i = index" 
+          (click)="markAsSeen(notification.notificationId)"
+         
+          >
+        <div class="notification-item">
+          <h3>{{ i + 1 }}. {{ notification.bookName || 'Order Update'}}</h3>
+          <p>{{ notification.message }}</p>
+        </div>
+      </li>
+    </ul>
+    
+
+    <ng-template #noNotifications>
+      <p style="text-align: center; color: #555;">No new notifications.</p>
+    </ng-template>
+  </div>
+</div>
+
+<app-footer></app-footer>

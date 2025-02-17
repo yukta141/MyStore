@@ -1,0 +1,140 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+  <p class="text-center fs-1 fw-bold m-4">My Cart</p>
+ 
+  <div *ngIf="cartItems.length > 0" class="cart-items-container mt-3">
+    <div *ngFor="let cartItem of cartItems; let i = index" class="cart-item mb-4">
+      <div class="card p-3">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img
+              [src]="
+                '/assets/images/' + (cartItem.book.bookImage || 'placeholder-image.jpg')
+              "
+              alt="book"
+              class="card-img"
+              style="max-height: 250px; max-width: 250px; margin: auto;"
+            />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <button
+                type="button"
+                class="close"
+                aria-label="Close"
+                (click)="removeCartItem(i)"
+                style="position: absolute; right: 10px; top: -10px;"
+              >
+                <p class="fs-1 fw-bold">X</p>
+              </button>
+
+              <h3 class="card-title">
+                <strong>Book Name: </strong>{{ cartItem.book.bookName || "Unknown" }}
+              </h3>
+              <p class="card-text">
+                <strong>Price:</strong> ₹{{ cartItem.book.bookPrice || 0 }}
+              </p>
+              <p class="card-text">
+                <strong>Quantity:</strong> {{ cartItem.quantity }}
+              </p>
+              <p class="card-text">
+                <strong>Total Price:</strong> ₹{{ cartItem.book.bookPrice * cartItem.quantity }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="cartItems.length > 0" class="coupon-section d-flex justify-content-center align-items-center">
+    <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()" class="d-flex gap-2">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          formControlName="couponCode"
+          class="form-control"
+          placeholder="Enter Coupon Code"
+          aria-label="Coupon Code"
+          [disabled]="isCouponApplied"
+        />
+        <button
+          type="submit"
+          class="btn apply"
+          [disabled]="!couponForm.valid"
+        >
+          Apply Coupon
+        </button>
+      </div>
+    </form>
+    <button
+      (click)="removeCoupon()"
+      class="btn remove btn-danger mb-3"
+      *ngIf="isCouponApplied"
+      style="margin-left: 10px"
+    >
+      Remove Coupon
+    </button>
+  </div>
+ 
+  <div *ngIf="cartItems.length === 0" class="text-center">
+    <img src="/assets/images/cart.png" alt="Empty Cart" class="img-fluid" />
+    <h3 class="order-data"><strong>No items in the cart.</strong></h3>
+  </div>
+
+  
+  <div *ngIf="cartItems.length > 0" class="text-end mt-3">
+    <h4><strong>Total Price:</strong> ₹{{ totalPrice  | number:'1.2-2' }}</h4>
+  </div>
+
+ 
+  <div class="mt-4 mb-4 d-flex justify-content-end gap-2">
+    <a routerLink="/user/home" class="button1">Continue Shopping</a>
+    <a class="button1" *ngIf="cartItems.length > 0" (click)="buyNow()">
+      Proceed to Checkout
+    </a>
+  </div>
+
+  <div class="available-coupons-section mt-3">
+    <h4>Available Coupons:</h4>
+    <div class="row">
+      <div *ngFor="let coupon of coupons" class="col-md-4 mb-3">
+        
+        <div class="card h-100 shadow-sm">
+          <div class="card-body coupon-card d-flex flex-column">
+            <h5 class="card-title"> <strong>Coupon Code: </strong>{{ coupon.couponCode }}</h5>
+            <p class="card-text">
+              <strong>Coupon Name: </strong>{{ coupon.couponName }}
+            </p>
+            <p class="card-text">
+              <strong>Coupon Description: </strong>{{ coupon.couponDescription }}
+            </p>
+            <p class="card-text">
+              <strong>Discount: </strong>{{ coupon.couponDiscount }}%
+            </p>
+            <p class="card-text">
+              <strong>Condition: </strong>The cart value should be more than{{ coupon.conditionValue }}.
+            </p>
+            
+            <div class="mt-auto">
+              <!-- <button class="btn btn-primary w-100" (click)="applyCoupon(coupon.couponCode)">
+                Apply Coupon
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</div>
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<app-footer></app-footer>

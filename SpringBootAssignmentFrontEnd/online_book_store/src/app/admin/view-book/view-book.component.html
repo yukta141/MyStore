@@ -1,0 +1,76 @@
+
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+ 
+  <app-admin-side-bar></app-admin-side-bar>
+
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-wrapper">
+        <div class="form-container">
+          <div class="form-header">
+            <h1>All Books</h1>
+          </div>
+          <div class="table-responsive">
+
+            <div *ngIf="paginatedProducts.length === 0" class="alert alert-warning">
+              No books added yet.
+            </div>
+            <table class="table table-hover" *ngIf="paginatedProducts.length > 0">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Book Name</th>
+                  <th scope="col">Book Author</th>
+                  <th scope="col">Book Description</th>
+                  <th scope="col">Book Category</th>
+                  <th scope="col">Book Price</th>
+                  <th scope="col">Book Image</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let product of paginatedProducts">
+                  <td>{{ product.bookName }}</td>
+                  <td>{{ product.bookAuthorName }}</td>
+                  <td>{{ product.bookDescription }}</td>
+                  <td>{{ product.bookCategory }}</td>
+                  <td>{{ product.bookPrice | currency: 'INR' }}</td>
+                  <td>
+                    <img
+                      [src]="'/assets/images/' + product.bookImage"
+                      alt="book Image"
+                      style="max-width: 100px; max-height: 100px"
+                    />
+                  </td>
+                  <td class="text-end">
+                    <a
+                      href="#"
+                      class="btn btn-sm btn-neutral"
+                      routerLink="/edit/{{ product.bookId }}"
+                    >
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-square btn-neutral text-danger-hover"
+                      (click)="deleteBook(product.bookId)"
+                    >
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination-buttons" *ngIf="paginatedProducts.length > 0"
+            >
+            <button class="button" (click)="previousPage()">Previous</button>
+            <span>{{ currentPage }} / {{ totalPages }}</span>
+            <button class="button" (click)="nextPage()">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

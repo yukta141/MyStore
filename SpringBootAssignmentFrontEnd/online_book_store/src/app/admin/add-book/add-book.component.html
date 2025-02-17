@@ -1,0 +1,153 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-admin-side-bar></app-admin-side-bar>
+
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-wrapper">
+        <div class="form-container">
+          <div class="form-header">
+            <h1>Add Book</h1>
+          </div>
+          <form [formGroup]="book" (ngSubmit)="addBookDetails()">
+            <div class="form-group">
+              <label for="bookName">Book Name</label>
+              <input
+                type="text"
+                id="bookName"
+                formControlName="bookName"
+                class="form-control"
+                placeholder="Enter Book Name"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookName')?.touched || submitted) && book.get('bookName')?.errors?.['required']"
+              >
+                Book Name can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookAuthorName">Book Author Name</label>
+              <input
+                type="text"
+                id="bookAuthorName"
+                formControlName="bookAuthorName"
+                class="form-control"
+                placeholder="Enter Book Author Name"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookAuthorName')?.touched || submitted) && book.get('bookAuthorName')?.errors?.['required']"
+              >
+                Book Author Name can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookDescription">Book Description</label>
+              <input
+                type="text"
+                id="bookDescription"
+                formControlName="bookDescription"
+                class="form-control"
+                placeholder="Enter Book Description"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookDescription')?.touched || submitted) && book.get('bookDescription')?.errors?.['required']"
+              >
+                Book Description can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookSeries">Book Series</label>
+              <input
+                type="text"
+                id="bookSeries"
+                formControlName="bookSeries"
+                class="form-control"
+                placeholder="Enter Book Series Name"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookSeries')?.touched || submitted) && book.get('bookSeries')?.errors?.['required']"
+              >
+                Book Series Name can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookCategory">Book Category</label>
+              <select
+                id="bookCategory"
+                formControlName="bookCategory"
+                class="form-control"
+              >
+                <option value="" disabled selected>Select Book Category</option>
+                <option
+                  *ngFor="let category of bookCategories"
+                  [value]="category.categoryName"
+                >
+                  {{ category.categoryName }}
+                </option>
+              </select>
+              <span
+                class="error"
+                *ngIf="(book.get('bookCategory')?.touched || submitted) && book.get('bookCategory')?.errors?.['required']"
+              >
+                Book Category can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookPrice">Book Price</label>
+              <input
+                type="number"
+                id="bookPrice"
+                formControlName="bookPrice"
+                class="form-control"
+                placeholder="Enter Book Price"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookPrice')?.touched || submitted) && book.get('bookPrice')?.errors?.['min']"
+              >
+                Book Price should be more than 100 Rs.
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="bookImage">Book Image</label>
+              <input
+                type="file"
+                id="bookImage"
+                formControlName="bookImage"
+                class="form-control"
+                placeholder="Select Book Image"
+              />
+              <span
+                class="error"
+                *ngIf="(book.get('bookImage')?.touched || submitted) && book.get('bookImage')?.errors?.['required']"
+              >
+                Book Image is required!
+              </span>
+            </div>
+
+            
+
+            <div class="button-container">
+              <button type="submit" (click)="submitted = true">Add</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+
+          
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+

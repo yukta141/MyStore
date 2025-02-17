@@ -1,0 +1,77 @@
+<app-header></app-header>
+
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+
+<div class="main-container">
+  <div class="container" *ngIf="productDetails">
+    <div class="row">
+      <div class="col-md-6">
+        <img
+          [src]="'/assets/images/' + productDetails.bookImage"
+          class="product-image"
+          alt="Product Image"
+          style="max-width: 100%; height: auto; object-fit: cover"
+        />
+      </div>
+      <input type="hidden" [value]="productDetails.bookId" name="productId" />
+      <div class="col-md-6 product-info">
+        <h2 class="productname">{{ productDetails.bookName }}</h2>
+        <h5 class="text-muted">{{ productDetails.bookDescription }}</h5>
+        <h6 class="h6">
+          <strong>Book Price: </strong>Rs.{{ productDetails.bookPrice }}
+        </h6>
+        <h6 class="h6">
+          <strong>Author Name: </strong>{{ productDetails.bookAuthorName }}
+        </h6>
+
+        <h5 class="shipping">FREE SHIPPING ON ALL ORDERS</h5>
+        
+            <!-- <h6 class="h6">
+              <strong class="quantity-input-group">Quantity: </strong>
+            
+            <div class="quantity-input-group">
+              <input
+                type="number"
+                id="quantity"
+                [(ngModel)]="quantity"
+                name="quantity"
+                class="form-control text-center"
+                min="1"
+                required
+              />
+            </div>
+          </h6>  -->
+
+           <h6 class="h6 quantity-input-label">
+          <strong>Quantity:   </strong>
+          <div class="quantity-input-group">
+            <!-- <button type="button" class="btn btn-outline-secondary" (click)="decrementQuantity()">-</button> -->
+            <input
+              type="number"
+              id="quantity"
+              [(ngModel)]="quantity"
+              name="quantity"
+              class="form-control text-center"
+              min="1"
+              max="10"
+              required
+            />
+          </div>
+        </h6>
+        
+        <div class="buttons mt-3">
+          <a class="btn b1" routerLink="/user/home">Back</a>
+          <a class="btn b1" (click)="userId ? addToCart() : showLoginAlert()">
+           Add to Cart
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<app-footer></app-footer>

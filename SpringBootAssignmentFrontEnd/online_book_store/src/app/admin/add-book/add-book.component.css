@@ -1,0 +1,114 @@
+@import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+/* Reset some basic styles */
+body,
+h1,
+form,
+input,
+button,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Adjusted for larger form */
+  padding: 20px;
+}
+
+.form-container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 800px; /* Adjusted for larger form */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: rgb(84, 105, 212);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
+}
+
+.error {
+  color: #e74c3c;
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 48%;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #5a09e0, #1d4ed8);
+  transform: scale(1.05);
+}

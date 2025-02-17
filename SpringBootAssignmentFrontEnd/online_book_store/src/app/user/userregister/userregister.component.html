@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Page</title>
+ 
+</head>
+<body>
+  <div class="form-wrapper">
+    <div class="form-container">
+      <div class="form-header">
+        <h1>Create Account</h1>
+      </div>
+      <div class="error-message" *ngIf="emailExistsErrorMessage">
+        {{ emailExistsErrorMessage }}
+      </div>
+      <form id="stripe-register" [formGroup]="user" (ngSubmit)="registerUsers()">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            formControlName="userName"
+            placeholder="Enter your Name"
+          />
+          <span class="error" *ngIf="(user.get('userName')?.touched || submitted) && user.get('userName')?.errors?.['required']">Name can't be blank</span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="userEmail"
+            placeholder="Enter your Email"
+          />
+          <span class="error" *ngIf="(user.get('userEmail')?.touched || submitted) && user.get('userEmail')?.errors?.['required']">Email can't be blank</span>
+          <span class="error" *ngIf="user.get('userEmail')?.errors?.['email']">Invalid email format</span>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contact Number</label>
+          <input
+            id="contact"
+            type="text"
+            formControlName="userContactNumber"
+            placeholder="Enter your Contact Number"
+          />
+          <span class="error" *ngIf="(user.get('userContactNumber')?.touched || submitted) && user.get('userContactNumber')?.errors?.['required']">Contact Number can't be blank</span>
+          <span class="error" *ngIf="user.get('userContactNumber')?.errors?.['minlength'] || user.get('userContactNumber')?.errors?.['maxlength']">Contact Number must be exactly 10 digits</span>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <input
+            id="address"
+            type="text"
+            formControlName="userAddress"
+            placeholder="Enter your Address"
+          />
+          <span class="error" *ngIf="(user.get('userAddress')?.touched || submitted) && user.get('userAddress')?.errors?.['required']">Address can't be blank</span>
+          <!-- <span class="error" *ngIf="user.get('userAddress')?.errors?.['minlength'] || user.get('userAddress')?.errors?.['maxlength']">Contact Number must be exactly 10 digits</span> -->
+        </div>
+
+
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="userPassword"
+            placeholder="Enter your Password"
+          />
+          <span class="error" *ngIf="(user.get('userPassword')?.touched || submitted) && user.get('userPassword')?.errors?.['required']">Password can't be blank</span>
+          <span class="error" *ngIf="user.get('userPassword')?.errors?.['pattern']">Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character.</span>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            formControlName="userConfirmPassword"
+            placeholder="Retype Password"
+          />
+          <span class="error" *ngIf="(user.get('userConfirmPassword')?.touched || submitted) && user.get('userConfirmPassword')?.errors?.['required']">Confirm Password can't be blank</span>
+          <span class="error" *ngIf="user.get('userConfirmPassword')?.errors?.['pattern']">Invalid Password Format.</span>
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <div class="footer-link">
+        <span>Already have an account? <a routerLink="/user/login">Login</a></span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

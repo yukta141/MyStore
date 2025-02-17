@@ -1,0 +1,121 @@
+/* Reset some basic styles */
+body, h1, form, input, button, a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.form-container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  padding: 40px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.form-header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #555;
+  font-weight: 600;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+  border-color: #2575fc;
+  box-shadow: 0 0 8px rgba(37, 117, 252, 0.3);
+}
+
+.error {
+  color: #e74c3c;
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.error-message {
+  color: #e74c3c;
+  margin: 15px 0;
+  font-size: 14px;
+}
+
+.links {
+  margin: 20px 0;
+}
+
+.links a {
+  color: #2575fc;
+  text-decoration: none;
+  font-size: 14px;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+button {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
+  transition: background 0.3s, transform 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #5a09e0, #1d4ed8);
+  transform: scale(1.05);
+}

@@ -1,0 +1,142 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.container.orderContainer {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+app-header, app-footer {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #fff;
+}
+
+.orderContainer {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-item {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.order-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+}
+
+.order-card {
+  background-color: #fff;
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  color: #6a11cb;
+  margin-bottom: 15px;
+}
+
+.product-image {
+  border-radius: 8px;
+  max-height: 200px;
+  max-width: 100%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.order-data {
+  font-size: 18px;
+  color: #6a11cb;
+  margin-top: 20px;
+}
+
+.desc{
+  font-size: 20px;
+}
+.order-item .col-md-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.order-item .col-md-10 {
+  padding-left: 20px;
+  margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .order-item {
+    padding: 15px;
+  }
+
+  .order-item .col-md-2,
+  .order-item .col-md-10 {
+    padding: 0;
+  }
+
+  .product-image {
+    max-height: 150px;
+    max-width: 100%;
+  }
+}
+
+
+.delivery-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.status-item {
+  text-align: center;
+}
+
+.status-line {
+  width: 50px;
+  height: 10px;
+  background-color: lightgray;
+  position: relative;
+}
+
+.status-line.active {
+  background-color: blue;
+}
+
+.status-item.completed img {
+  opacity: 1;
+}
+
+.status-item img {
+  opacity: 1;  
+  width: 70px;
+  height: 70px;
+}
+
+.status-item.completed p {
+  font-weight: bold;
+}
+
+.status-check {
+  margin-top: 5px; 
+}
+

@@ -1,0 +1,127 @@
+@import url("https://unpkg.com/@webpixels/css@1.1.5/dist/index.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
+
+body,
+h1,
+form,
+input,
+button,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  color: #5469d4;
+  font-size: 30px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: "Tahoma";
+}
+
+.container-fluid {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 2px 2px 2px #ccc;
+}
+
+.main-container {
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  padding-bottom: 250px;
+}
+
+.product-info {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.productname {
+  font-size: 32px;
+  color: #1d4ed8;
+}
+.shipping{
+  color: #1d4ed8;
+}
+
+.product-image {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.text-muted {
+  color: #666;
+  padding: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.b1:hover {
+  background: linear-gradient(135deg, #5a09e0, #1d4ed8);
+  transform: scale(1.05);
+}
+h6 {
+  padding: 4px;
+}
+
+.quantity-input-group {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 150px; 
+  /* margin-left: 10px; */
+}
+
+.quantity-input-group .btn {
+  width: 40px; 
+}
+
+.quantity-input-group .form-control {
+  flex: 1;
+  text-align: center;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.quantity-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding-left: 10px; */
+}

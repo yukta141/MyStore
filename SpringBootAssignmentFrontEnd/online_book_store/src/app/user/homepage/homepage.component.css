@@ -1,0 +1,220 @@
+.carousel {
+  margin-top: 20px;
+}
+.container{
+  max-width: 1500px;
+}
+
+.carousel-item img.caro {
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+}
+
+.title {
+  font-size: 36px;
+  color: #1d4ed8;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: #333;
+}
+
+.underline {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.line {
+  height: 3px;
+  background: #1d4ed8;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.cat {
+  background-color: #f9f9f9;
+  margin-bottom: 10px;
+}
+.card-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  margin-bottom: 20px;
+  height: 200px;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px #1d4ed8;
+}
+
+
+.card-figure {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px;
+  display: block;
+  transition: opacity 0.3s;
+}
+
+.card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  border-top: 3px solid #fff;
+  transition: transform 0.3s;
+  transform: translateY(100%);
+}
+
+.card-container:hover .card-caption {
+  transform: translateY(0);
+}
+
+.card-caption h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.cardsname {
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+}
+
+.cardsname:hover {
+  text-decoration: underline;
+}
+
+.card-name {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.card__background {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.card__content {
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 0 0 10px 10px;
+}
+
+.card__title {
+  font-size: 22px;
+  color: #1d4ed8;
+}
+
+.card__description {
+  color: #666;
+}
+
+.card-container a {
+  text-decoration: none;
+  color: #1d4ed8;
+}
+
+.card-container a:hover {
+  text-decoration: underline;
+}
+
+.howto-container {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.howto {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.testimonials-container {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding-bottom: 100px;
+}
+
+.testimonial {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  text-align: center;
+}
+
+.testimonial p {
+  font-size: 18px;
+  color: #333;
+}
+
+.testimonial h5 {
+  font-size: 16px;
+
+  margin-top: 10px;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.book-card {
+  border: 1px solid #ccc;
+
+  padding: 16px;
+  margin: 16px;
+  max-width: 300px;
+  text-align: center;
+
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  gap: 6px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-image {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.book-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.series-title {
+  color: #1d4ed8;
+}
+h5 {
+  color: #1d4ed8;
+}

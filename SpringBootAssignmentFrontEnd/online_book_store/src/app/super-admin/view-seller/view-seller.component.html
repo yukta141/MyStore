@@ -1,0 +1,126 @@
+<app-super-admin-nav></app-super-admin-nav>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-super-admin-side-bar></app-super-admin-side-bar>
+  <div class="flex-grow-1 h-screen overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid">
+        
+      
+        <div class="row g-6 mb-6">
+          
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0 top-cards">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <span class="h2 font-bold d-block mb-2">Books</span>
+                    <span class="h3 font-bold mb-0">{{ totalBooks }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-tertiary text-white text-lg rounded-circle">
+                      <a routerLink="/viewbooks" class="icon-link">
+                        <i class="bi bi-box"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+       
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0 top-cards">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <span class="h2 font-bold d-block mb-2">Categories</span>
+                    <span class="h3 font-bold mb-0">{{ totalCategories }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-success text-white text-lg rounded-circle">
+                      <a routerLink="/viewcategory" class="icon-link">
+                        <i class="bi bi-list-ul"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0 top-cards">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <span class="h2 font-bold d-block mb-2">Sellers</span>
+                    <span class="h3 font-bold mb-0">{{ totalUsers }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
+                      <a routerLink="/seeUsers" class="icon-link">
+                        <i class="bi bi-people"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-3 col-sm-6 col-12">
+            <div class="card border-0 top-cards">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <span class="h2 font-bold d-block mb-2">Orders</span>
+                    <span class="h3 font-bold mb-0">{{ totalOrders }}</span>
+                  </div>
+                  <div class="col-auto">
+                    <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
+                      <a routerLink="/vieworders" class="icon-link">
+                        <i class="bi bi-cart3"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+ 
+        <div class="row">
+          
+
+          <div class="col-9 mb-6">
+            <div class="chart-container">
+              <h2>Top Selling Categories</h2>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="col-6 mb-6">
+            <div class="chart-container">
+              <app-revenuechart></app-revenuechart>
+            </div>
+          </div>
+
+          <div class="col-3 mb-6">
+            <div class="chart-container">
+              <app-pie-chart></app-pie-chart>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<app-footer></app-footer>

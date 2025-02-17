@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <div class="form-container">
+        <div class="form-header">
+          <h1>Login</h1>
+        </div>
+        <form id="stripe-login" [formGroup]="user" (ngSubmit)="loginUsers()">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              type="email"
+              formControlName="userEmail"
+              placeholder="Enter your Email"
+            />
+            <span
+              class="error"
+              *ngIf="(user.get('userEmail')?.touched || submitted) && user.get('userEmail')?.errors?.['required']"
+              >Email can't be blank</span
+            >
+            <span class="error" *ngIf="user.get('userEmail')?.errors?.['email']"
+              >Invalid email format</span
+            >
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              formControlName="userPassword"
+              placeholder="Enter your Password"
+            />
+            <span
+              class="error"
+              *ngIf="(user.get('userPassword')?.touched || submitted) && user.get('userPassword')?.errors?.['required']"
+              >Password can't be blank</span
+            >
+            <span
+              class="error"
+              *ngIf="user.get('userPassword')?.errors?.['pattern']"
+              >Password must contain at least 8 characters, 1 uppercase letter,
+              1 lowercase letter, 1 number, and 1 special character.</span
+            >
+          </div>
+          <span class="error-message">{{ errorMessage }}</span>
+          <div class="links">
+            <a routerLink="/register" (click)="setRole('USER')"
+              >Register as User?</a
+            >
+            <a routerLink="/register" (click)="setRole('SELLER')"
+            >Register as Seller?</a
+          >
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

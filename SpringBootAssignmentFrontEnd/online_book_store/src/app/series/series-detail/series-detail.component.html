@@ -1,0 +1,38 @@
+
+<app-header></app-header>
+   <div class="series-detail-container">
+    <div class="book-main-details">
+      <div class="book-image">
+        <img *ngIf="book?.bookImage" [src]="'/assets/images/'+book.bookImage" alt="{{ book.bookName }}" />
+      </div>
+  
+      <div class="book-info">
+        <h1 class="name">{{ book.bookSeries }}</h1>
+        <p><strong>Author:</strong> {{ book.bookAuthorName }}</p>
+        <p><strong>Description:</strong> {{ book.bookDescription }}</p>
+        <p><strong>Price:Rs.</strong> {{ book.bookPrice }}</p>
+        <button class="subscribe-btn" 
+        (click)="subscribeToSeries(book.bookId!)"
+        [disabled]="isSubscribed">
+        {{ isSubscribed ? 'Subscribed' : 'Subscribe' }}
+      </button>
+      </div>
+    </div>
+  
+    
+    <div class="related-books-section">
+      <h2 class="name">Available Books in this Series:</h2>
+      <div class="related-books-container">
+        <div *ngFor="let relatedBook of book.relatedBooks" class="related-book-card">
+          <img *ngIf="relatedBook.bookImage" 
+          [src]="'/assets/images/'+relatedBook.bookImage"
+          [routerLink]="'/showBookbyId/' + relatedBook.bookId"
+           alt="{{ relatedBook.bookName }}" />
+          <h3>{{ relatedBook.bookName }}</h3>
+          <p><strong>Author:</strong> {{ relatedBook.bookAuthorName }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  

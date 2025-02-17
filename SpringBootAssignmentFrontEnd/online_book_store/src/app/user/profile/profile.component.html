@@ -1,0 +1,39 @@
+<app-header></app-header>
+<div class="wrapper col-md-12">
+  <div class="profile-card js-profile-card justify-content-center align-items-center">
+    <div class="profile-card__header">
+      <div class="profile-card__img">
+        <img src="../../../assets/images/avatar-boy.png" alt="User Avatar">
+      </div>
+      <div class="profile-card__name">
+        <h1>{{ user.userName }}</h1>
+        <p><strong>Status:</strong> Online</p>
+      </div>
+    </div>
+
+    <div class="profile-card__body js-profile-cnt">
+        <h2>Profile Details</h2>
+        <div class="content" *ngIf="user">
+          <p><strong>Name:</strong> {{ user.userName }}</p>
+          <p><strong>Email:</strong> {{ user.userEmail }}</p>
+          <p><strong>Contact Number:</strong> {{ user.userContactNumber }}</p>
+        </div>
+  
+        <div class="profile-card__actions">
+          <button class="btn btn-primary" [routerLink]="'/updateProfile/' + user.userId">Update Profile</button>
+        </div>
+      </div>
+
+    <div class="subscribed-series" *ngIf="subscribedSeries.length > 0">
+        <h3>Subscribed Series</h3>
+        <ul>
+          <li *ngFor="let series of subscribedSeries">
+            {{ series }}
+          </li>
+        </ul>
+      </div>      
+
+   
+  </div>
+</div>
+<app-footer></app-footer>

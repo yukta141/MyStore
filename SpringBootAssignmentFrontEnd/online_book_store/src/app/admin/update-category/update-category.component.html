@@ -1,0 +1,36 @@
+
+<app-admin-nav-bar></app-admin-nav-bar>
+
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+ 
+  <app-admin-side-bar></app-admin-side-bar> 
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-wrapper">
+        <div class="form-container">
+          <div class="form-header">
+            <h1>Update Category</h1>
+          </div>
+          <form [formGroup]="category" (ngSubmit)="updateCategory()">
+            <div class="form-group">
+              <label for="categoryName" class="form-label">Category Name</label>
+              <input type="text" id="categoryName" formControlName="categoryName" class="form-control" placeholder="Category Name"/>
+              <span class="error" *ngIf="(category.get('categoryName')?.touched || submitted) && category.get('categoryName')?.errors?.['required']">Category Name is required!</span>
+            </div>
+
+            <div class="form-group">
+              <label for="categoryImage" class="form-label">Category Image</label>
+              <input type="file" id="categoryImage" formControlName="categoryImage" class="form-control" placeholder="Category Image"/>
+              <span class="error" *ngIf="(category.get('categoryImage')?.touched || submitted) && category.get('categoryImage')?.errors?.['required']">Category Image is required!</span>
+            </div>
+
+            <div class="button-container">
+              <button type="submit" (click)="submitted = true">Update</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

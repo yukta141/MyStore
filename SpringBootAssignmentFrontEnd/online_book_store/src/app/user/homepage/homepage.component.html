@@ -1,0 +1,155 @@
+<app-header></app-header>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&family=Roboto:wght@300&display=swap"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+/>
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+/>
+
+
+<div class="container-fluid carousel">
+  <div
+    id="carouselExample"
+    class="carousel slide"
+    data-bs-ride="carousel"
+    data-bs-interval="3000"
+  >
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <a [routerLink]="['/getcards', categories[0].categoryName]">
+          <img src="assets/images/car1.png" class="caro" alt="Carousel 1" />
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a [routerLink]="['/getcards', categories[1].categoryName]">
+          <img src="assets/images/car3.png" class="caro" alt="Carousel 2" />
+        </a>
+      </div>
+      <div class="carousel-item">
+        <a [routerLink]="['/getcards', categories[2].categoryName]">
+          <img src="assets/images/car4.png" class="caro" alt="Carousel 3" />
+        </a>
+      </div>
+     
+    </div>
+   
+    <button
+      class="carousel-control-prev"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="prev"
+    >
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button
+      class="carousel-control-next"
+      type="button"
+      data-bs-target="#carouselExample"
+      data-bs-slide="next"
+    >
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-4">
+    <div class="col text-center">
+      <h1 class="title">BOOK CATALOGUE</h1>
+      <h3 class="subtitle">
+        Shop from 100s of the best books available globally
+      </h3>
+      <div class="underline">
+        <div class="line"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="row mt-4 cat">
+    <div class="col-md-2 mb-4" *ngFor="let category of categories">
+      <div class="card-container">
+        <a [routerLink]="['/getcards', category.categoryName]">
+          <figure class="card-figure">
+            <img
+              [src]="'assets/images/' + category.categoryImage"
+              class="card-img"
+              alt="Category Image"
+            />
+            <figcaption class="card-caption">
+              <h4>{{ category.categoryName }}</h4>
+            </figcaption>
+          </figure>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="col text-center">
+    <h1 class="title">Available Book Series</h1>
+    <div class="underline">
+      <div class="line"></div>
+    </div>
+  </div>
+  <div class="book-list">
+    <div *ngFor="let book of books | slice:0:3" class="col-md-3 mb-4 book-card">
+      <img
+        [src]="'assets/images/' + book.bookImage"
+        alt="{{ book.bookName }}"
+        [routerLink]="'/series/' + book.bookId"
+        class="book-image"
+      />
+      <h3 class="series-title">{{ book.bookSeries }}</h3>
+      <h5 class="series-author">{{ book.bookAuthorName }}</h5>
+      
+    </div>
+  </div>
+
+  <div class="container testimonials-container">
+    <div class="row mt-4">
+      <div class="col text-center">
+        <h1 class="title">CUSTOMER TESTIMONIALS</h1>
+        <div class="underline">
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>"Great selection of books and excellent customer service!"</p>
+          <h5>- Paula sloan</h5>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>"Fast shipping and the books arrived in perfect condition."</p>
+          <h5>- Jane Smith</h5>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial">
+          <p>"I love the variety of genres available. Highly recommended!"</p>
+          <h5>- Mark Wilson</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>

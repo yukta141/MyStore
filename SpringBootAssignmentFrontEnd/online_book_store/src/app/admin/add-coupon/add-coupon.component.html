@@ -1,0 +1,132 @@
+<app-admin-nav-bar></app-admin-nav-bar>
+<div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+  <app-admin-side-bar></app-admin-side-bar>
+
+  <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+    <main class="py-6 bg-surface-secondary">
+      <div class="container-fluid form-wrapper">
+        <div class="form-container">
+          <div class="form-header">
+            <h1>Add Coupon</h1>
+          </div>
+          <form [formGroup]="coupon" (ngSubmit)="addCouponDetails()">
+            <div class="form-group">
+              <label for="couponName">Coupon Name</label>
+              <input
+                type="text"
+                id="couponName"
+                formControlName="couponName"
+                class="form-control"
+                placeholder="Enter Coupon Name"
+              />
+              <span
+                class="error"
+                *ngIf="(coupon.get('couponName')?.touched || submitted) && coupon.get('couponName')?.errors?.['required']"
+              >
+                Coupon Name can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="couponCode">Coupon Code</label>
+              <input
+                type="text"
+                id="couponCode"
+                formControlName="couponCode"
+                class="form-control"
+                placeholder="Enter Coupon Code"
+              />
+              <span
+                class="error"
+                *ngIf="(coupon.get('couponCode')?.touched || submitted) && coupon.get('couponCode')?.errors?.['required']"
+              >
+                Coupon Code can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="couponDescription">Coupon Description</label>
+              <input
+                type="text"
+                id="couponDescription"
+                formControlName="couponDescription"
+                class="form-control"
+                placeholder="Enter Coupon Description"
+              />
+              <span
+                class="error"
+                *ngIf="(coupon.get('couponDescription')?.touched || submitted) && coupon.get('couponDescription')?.errors?.['required']"
+              >
+                Coupon Description can't be blank!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="couponDiscount">Coupon Discount (%)</label>
+              <input
+                type="number"
+                id="couponDiscount"
+                formControlName="couponDiscount"
+                class="form-control"
+                placeholder="Enter Discount Percentage"
+              />
+              <span
+                class="error"
+                *ngIf="(coupon.get('couponDiscount')?.touched || submitted) && coupon.get('couponDiscount')?.errors?.['min']"
+              >
+                Discount should be more than 0%.
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="couponExpirationDate">Coupon Expiration Date</label>
+              <input
+                type="date"
+                id="couponExpirationDate"
+                formControlName="couponExpirationDate"
+                class="form-control"
+                placeholder="Select Expiration Date"
+                [min]="currentDate"
+              />
+              <span
+                class="error"
+                *ngIf="(coupon.get('couponExpirationDate')?.touched || submitted) && coupon.get('couponExpirationDate')?.errors?.['required']"
+              >
+                Expiration Date is required!
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="conditionType">Coupon Condition </label>
+              <input
+                type="text"
+                id="conditionType"
+                formControlName="conditionType"
+                class="form-control"
+                placeholder="Enter coupon condition"   
+              />   
+                  
+            </div>
+
+            <div class="form-group">
+              <label for="conditionValue"> Condition value</label>
+              <input
+                type="text"
+                id="conditionValue"
+                formControlName="conditionValue"
+                class="form-control"
+                placeholder="Enter condition value"   
+              />  
+                     
+            </div>
+
+            <div class="button-container">
+              <button type="submit" (click)="submitted = true">Add</button>
+              <button type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

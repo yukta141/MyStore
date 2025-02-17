@@ -1,0 +1,40 @@
+
+<app-header></app-header>
+  <div class="wrapper">
+    <div class="profile-card js-profile-card">
+      <div class="profile-card__img">
+        <img src="../../../assets/images/avatar-boy.png">
+      </div>
+  
+      <div class="profile-card__cnt js-profile-cnt">
+        <div class="form-container">
+          <h1>Update Profile</h1>
+          <form id="stripe-login" [formGroup]="user" (ngSubmit)="updateUserDetails()">
+            <div class="field padding-bottom--24">
+              <label>Email:</label>
+              <input type="email" formControlName="userEmail" class="form-control" placeholder="Email" [value]="user.get('userEmail')?.value" readonly/>
+              <span class="text-danger" *ngIf="user.get('userEmail')?.touched && user.get('userEmail')?.errors?.['required']">Email Can't be Blank</span>
+              <span class="text-danger" *ngIf="user.get('userEmail')?.errors?.['email']">Invalid Email Format</span>
+            </div>
+        
+            <div class="field padding-bottom--24">
+              <label>Name:</label>
+              <input type="text" formControlName="userName" name="userName" class="form-control" placeholder="Name" />
+              <span class="text-danger" *ngIf="user.get('userName')?.touched && user.get('userName')?.errors?.['required']">Name Can't be Blank</span>
+            </div>
+           
+            <div class="field padding-bottom--24">
+              <label>Contact Number:</label>
+              <input type="text" formControlName="userContactNumber" class="form-control" placeholder="Contact Number" />
+              <span class="text-danger" *ngIf="user.get('userContactNumber')?.touched && user.get('userContactNumber')?.errors?.['required']">Contact Number Can't be Blank</span>
+             <span class="text-danger" *ngIf="user.get('userContactNumber')?.errors?.['minlength'] || user.get('userContactNumber')?.errors?.['maxlength']">Contact Number must be exactly 10 digits</span>
+             
+            </div><br>
+            <button type="submit"  [disabled]="!user.dirty || !user.valid">Update Profile</button>
+            
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

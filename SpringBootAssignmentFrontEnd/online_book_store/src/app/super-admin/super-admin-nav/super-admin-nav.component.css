@@ -1,0 +1,47 @@
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  padding: 10px 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.admin-logo img {
+  height: 70px;
+  width: 170px;
+}
+
+.admin-profile img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.admin-logo,
+.admin-profile {
+  display: flex;
+  align-items: center;
+}
+
+.admin-profile img {
+  border: 2px solid white;
+}
+
+.dropdown-menu {
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  margin-left: -100px;
+}
+
+.dropdown-item {
+  padding: 12px 16px; 
+  transition: background-color 0.2s ease, color 0.2s ease; 
+}
+
+
+
+
+
+

@@ -1,0 +1,121 @@
+<!-- 
+<app-header></app-header>
+<div class="content">
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <h1>Share Feedback</h1>
+      <div class="textarea">
+        <p>Rate Us</p>
+      </div>
+      <div class="mid">
+        <div
+          class="media"
+          *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+          (click)="setFeedbackRating(i + 1)"
+          (mouseenter)="setHoveredRating(i + 1)"
+          (mouseleave)="clearHoveredRating()"
+          [class.selected]="selectedRating !== null && selectedRating >= (i + 1)"
+          [class.hovered]="hoveredRating === (i + 1)"
+        >
+          <img src="../../assets/images/star-svgrepo-com.png" />
+        </div>
+      </div>
+      
+      <div class="textarea">
+        <p>Share your experience</p>
+        <textarea
+          name="exp"
+          id="exp"
+          placeholder="Let us know..."
+          [(ngModel)]="feedback.feedbackText"
+        ></textarea>
+      </div>
+      <div class="end">
+        <div class="submission">
+          <button type="submit" class="sub btn">Send</button>
+        </div>
+        <div class="skip">
+          <button routerLink="/user/home" class="skp btn">Skip</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
+ -->
+
+ <app-header></app-header>
+<div class="content">
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <h1>Share Feedback</h1>
+
+      <!-- Rating Section -->
+      <div class="textarea">
+        <p>Rate Us</p>
+      </div>
+      <div class="mid">
+        <div
+          class="media"
+          *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+          (click)="setFeedbackRating(i + 1)"
+          (mouseenter)="setHoveredRating(i + 1)"
+          (mouseleave)="clearHoveredRating()"
+          [class.selected]="selectedRating !== null && selectedRating >= (i + 1)"
+          [class.hovered]="hoveredRating === (i + 1)"
+        >
+          <img src="../../assets/images/star-svgrepo-com.png" />
+        </div>
+      </div>
+      
+      <!-- Experience Section -->
+      <div class="textarea">
+        <p>Share your experience</p>
+        <textarea
+          name="exp"
+          id="exp"
+          placeholder="Let us know..."
+          [(ngModel)]="feedback.feedbackText"
+        ></textarea>
+      </div>
+
+      <div class="recommend">
+        <p>Would you recommend this to your friend? (Not required)</p>
+        <div class="recommend-options">
+          <label>
+            <input
+              type="radio"
+              name="recommend"
+              value="true"
+              [(ngModel)]="feedback.recommend"
+            /> 
+            Yes
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="recommend"
+              value="false"
+              [(ngModel)]="feedback.recommend"
+            />
+            No
+          </label>
+        </div>
+      </div>
+      
+      <div class="end">
+        <div class="submission">
+          <button type="submit" class="sub btn">Send</button>
+        </div>
+        <div class="skip">
+          <button routerLink="/user/home" class="skp btn">Skip</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
+
